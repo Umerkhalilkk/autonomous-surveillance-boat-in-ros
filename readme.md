@@ -104,3 +104,7 @@ A planned extension is attaching a robotic arm to the boat model, using simple i
 
 - ROS Wiki. (2022). *gps_common - ROS Wiki*. http://wiki.ros.org/gps_common
 - Gazebo Simulator. (2022). *Tutorial: Hydrodynamics*. http://gazebosim.org/tutorials
+
+## License
+
+This project is released under the MIT License. See [`LICENSE`](LICENSE) for details.
