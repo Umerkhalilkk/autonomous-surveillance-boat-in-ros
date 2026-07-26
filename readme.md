@@ -30,10 +30,6 @@ The control logic runs as a Finite State Machine (FSM) with four stages:
 
 The boat itself is a URDF model (0.15 kg) using `planar_move` for movement and a custom buoyancy plugin for realistic floating behavior on the simulated water surface.
 
-## System Architecture
-
-<img src="media/working_architecture.jpg" width="700" alt="System architecture diagram">
-
 ## Repository structure
 
 ```
