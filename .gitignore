@@ -1,0 +1,17 @@
+# Backup files
+*.bak
+
+# Reference file (not part of project)
+file_list.txt
+
+# Catkin build artifacts (if building inside this folder)
+build/
+devel/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
