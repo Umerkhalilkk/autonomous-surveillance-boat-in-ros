@@ -32,6 +32,10 @@ The control logic runs as a Finite State Machine (FSM) with four stages:
 
 The boat itself is a URDF model (0.15 kg) using `planar_move` for movement and a custom buoyancy plugin for realistic floating behavior on the simulated water surface.
 
+## System Architecture
+
+<img src="media/working_architecture.jpg" width="700" alt="System architecture diagram">
+
 ## Repository structure
 
 ```
@@ -56,6 +60,15 @@ urdf/
 worlds/
   water_world.world            Custom Gazebo world with water surface and targets
 
+docs/
+  floating_world_report.pdf    Full project report
+
+media/
+  gazebo.png                   Screenshot of the Gazebo simulation environment
+  output.png                   RViz output showing path tracking and camera feed
+  terminal_launch.png          Terminal output from roslaunch / rosrun
+  working_architecture.jpg     System architecture diagram
+
 CMakeLists.txt                 Catkin build configuration
 package.xml                    ROS package manifest
 ```
@@ -73,7 +86,7 @@ package.xml                    ROS package manifest
 1. Clone this repository into your catkin workspace's `src` folder:
    ```bash
    cd ~/catkin_ws/src
-   git clone https://github.com/<your-username>/floating_world.git
+   git clone https://github.com/Umerkhalilkk/autonomous-surveillance-boat-in-ros.git
    ```
 2. Build the workspace:
    ```bash
@@ -96,7 +109,13 @@ package.xml                    ROS package manifest
 
 ## Results
 
+<img src="media/gazebo.png" width="500" alt="Gazebo simulation"> <img src="media/output.png" width="500" alt="RViz output">
+
+*Left: the boat in the Gazebo water world. Right: RViz showing live path tracking and camera feed.*
+
 The simulation ran successfully, with the boat remaining stable on the water surface throughout operation. The vision system reliably detected the red target and transitioned the FSM from `SEARCHING` to `CHASING` immediately on detection. GPS values initialized at real-world Karachi coordinates (24.8607, 67.0011) and updated in real time with precision down to the 5th decimal place. Path tracking in RViz correctly reflected the boat's odometry throughout the run.
+
+Full write-up, methodology, and discussion are documented in the project report: [`docs/floating_world_report.pdf`](docs/floating_world_report.pdf)
 
 ## Future work
 
