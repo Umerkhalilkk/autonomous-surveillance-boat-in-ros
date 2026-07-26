@@ -1,0 +1,26 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name="red_block">
+    <pose>0 0 0 0 0 0</pose>
+    <link name="link">
+      <inertial>
+        <mass>0.25</mass> 
+        <inertia>
+          <ixx>0.01</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.01</iyy> <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><box><size>0.2 0.2 0.2</size></box></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><box><size>0.2 0.2 0.2</size></box></geometry>
+        <material>
+          <script><name>Gazebo/Red</name></script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="buoyancy" filename="libbuoyancy_plugin.so"/>
+  </model>
+</sdf>

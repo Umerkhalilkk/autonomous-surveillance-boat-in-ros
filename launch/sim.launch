@@ -1,0 +1,32 @@
+<launch>
+  <arg name="paused" default="false"/>
+  <arg name="gui" default="true"/>
+
+  <env name="GAZEBO_MODEL_PATH" value="$(find floating_world)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find floating_world)/worlds/water_world.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <param name="robot_description" textfile="$(find floating_world)/urdf/boat.urdf" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  
+  <node name="spawn_boat" pkg="gazebo_ros" type="spawn_model" 
+        args="-urdf -model my_boat -param robot_description -x -3.0 -y 0.0 -z 0.1" />
+
+  <node name="spawn_flag" pkg="gazebo_ros" type="spawn_model" 
+        args="-file $(find floating_world)/models/flag/model.sdf -sdf -model home_marker -x -3.0 -y 2.0 -z 1.0" />
+
+  <node name="spawn_red_1" pkg="gazebo_ros" type="spawn_model" 
+        args="-file $(find floating_world)/models/floating_block/model.sdf -sdf -model red_block_1 -x 2.0 -y -2.0 -z 0.5" />
+
+  <node name="spawn_red_2" pkg="gazebo_ros" type="spawn_model" 
+        args="-file $(find floating_world)/models/floating_block/model.sdf -sdf -model red_block_2 -x 6.0 -y 3.0 -z 0.5" />
+
+  <node name="spawn_blue" pkg="gazebo_ros" type="spawn_model" 
+        args="-file $(find floating_world)/models/blue_block/model.sdf -sdf -model blue_block -x 0 -y 3 -z 0.5" />
+
+</launch>

@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="floating_block">
+    <static>false</static>
+
+    <link name="link">
+      <!-- enable gravity so the block has weight -->
+      <gravity>1</gravity>
+
+      <!-- put the block slightly above spawn center by default -->
+      <pose>0 0 0.375 0 0 0</pose>
+
+      <!-- inertial: set mass so cube is half-submerged in water (mass ≈ 7.8125 kg) -->
+      <inertial>
+        <!-- mass computed for half-submerge: ρ * baseArea * submerged_height -->
+        <mass>7.8125</mass>
+
+        <!-- reasonable inertia values for a cube 0.25m side (approx) -->
+        <!-- Ixx = 1/12 * m * (b^2 + c^2) where b and c are other sides -->
+        <inertia>
+          <ixx>0.0406</ixx>
+          <iyy>0.0406</iyy>
+          <izz>0.0406</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.25 0.25 0.25</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.25 0.25 0.25</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Buoyancy plugin (water_level must match your world top surface) -->
+    <plugin name="buoyancy_plugin" filename="libbuoyancy_plugin.so">
+      <link_name>link</link_name>
+      <water_level>0.5</water_level>
+      <fluid_density>1000</fluid_density>
+      <linear_damping>1.5</linear_damping>
+      <angular_damping>1.5</angular_damping>
+    </plugin>
+
+  </model>
+</sdf>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="home_flag">
+    <static>true</static> <link name="link">
+      <visual name="pole">
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>2.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script><name>Gazebo/Green</name></script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

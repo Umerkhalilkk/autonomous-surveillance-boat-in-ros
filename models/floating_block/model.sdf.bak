@@ -1,0 +1,8 @@
+<plugin name="buoyancy_plugin" filename="libbuoyancy_plugin.so">
+  <link_name>link</link_name>
+  <water_level>0.5</water_level>
+  <fluid_density>1000</fluid_density>
+  <linear_damping>1.5</linear_damping>
+  <angular_damping>1.5</angular_damping>
+</plugin>
+
