@@ -2,13 +2,11 @@
 
 A ROS-based simulation of an autonomous unmanned surface vehicle (USV) for maritime surveillance. The boat uses LiDAR, GPS, and a camera to detect targets, track their real-world coordinates, and navigate autonomously in a custom Gazebo ocean environment.
 
-Built for the Robotic System and Programming course, Department of Electrical Engineering, Bahria University Karachi Campus (BS RIS-5, Fall 2025).
 
 ## Author
 
-Muhammad Umer — 02-239232-023
+Muhammad Umer 
 
-Submitted to Sir Hamza.
 
 ## Overview
 
